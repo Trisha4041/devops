@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        // 🔥 Explicit PATH so Jenkins can find dotnet on macOS
+        // Ensure Jenkins can find dotnet on macOS
         PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
         DOTNET_CLI_HOME = "${WORKSPACE}/.dotnet"
     }
@@ -24,26 +24,26 @@ pipeline {
 
         stage('Restore') {
             steps {
-                sh 'dotnet restore HelloApi/HelloApi.csproj'
+                sh 'dotnet restore YCCECalc/YCCECalc.csproj'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'dotnet build HelloApi/HelloApi.csproj --configuration Release --no-restore'
+                sh 'dotnet build YCCECalc/YCCECalc.csproj --configuration Release --no-restore'
             }
         }
 
         stage('Test') {
             steps {
-                // If no tests exist, pipeline will not fail
-                sh 'dotnet test HelloApi/HelloApi.csproj --configuration Release --no-build || true'
+                // Class library may not have tests, so don't fail pipeline
+                sh 'dotnet test YCCECalc/YCCECalc.csproj --configuration Release --no-build || true'
             }
         }
 
         stage('Publish') {
             steps {
-                sh 'dotnet publish HelloApi/HelloApi.csproj --configuration Release --no-build -o publish'
+                sh 'dotnet publish YCCECalc/YCCECalc.csproj --configuration Release --no-build -o publish'
             }
         }
     }
