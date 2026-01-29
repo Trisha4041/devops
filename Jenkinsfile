@@ -2,51 +2,49 @@ pipeline {
     agent any
 
     environment {
-        DOTNET_CLI_HOME = "C:\\Program Files\\dotnet"
+        // Optional: ensures dotnet uses a writable home
+        DOTNET_CLI_HOME = "${WORKSPACE}/.dotnet"
     }
 
     stages {
+
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
 
+        stage('Restore') {
+            steps {
+                sh 'dotnet restore'
+            }
+        }
+
         stage('Build') {
             steps {
-                script {
-                    // Restoring dependencies
-                    //bat "cd ${DOTNET_CLI_HOME} && dotnet restore"
-                    bat "dotnet restore"
-
-                    // Building the application
-                    bat "dotnet build --configuration Release"
-                }
+                sh 'dotnet build --configuration Release --no-restore'
             }
         }
 
         stage('Test') {
             steps {
-                script {
-                    // Running tests
-                    bat "dotnet test --no-restore --configuration Release"
-                }
+                sh 'dotnet test --configuration Release --no-build'
             }
         }
 
         stage('Publish') {
             steps {
-                script {
-                    // Publishing the application
-                    bat "dotnet publish --no-restore --configuration Release -o publish"
-                }
+                sh 'dotnet publish --configuration Release --no-build -o publish'
             }
         }
     }
 
     post {
         success {
-            echo 'Build, test, and publish successful!'
+            echo '✅ Build, test, and publish successful!'
+        }
+        failure {
+            echo '❌ Pipeline failed'
         }
     }
 }
