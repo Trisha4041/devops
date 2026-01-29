@@ -1,0 +1,11 @@
+/Users/trishapadgelwar/Desktop/devops/YCCECalc/bin/Debug/net10.0/YCCECalc.deps.json
+/Users/trishapadgelwar/Desktop/devops/YCCECalc/bin/Debug/net10.0/YCCECalc.dll
+/Users/trishapadgelwar/Desktop/devops/YCCECalc/bin/Debug/net10.0/YCCECalc.pdb
+/Users/trishapadgelwar/Desktop/devops/YCCECalc/obj/Debug/net10.0/YCCECalc.GeneratedMSBuildEditorConfig.editorconfig
+/Users/trishapadgelwar/Desktop/devops/YCCECalc/obj/Debug/net10.0/YCCECalc.AssemblyInfoInputs.cache
+/Users/trishapadgelwar/Desktop/devops/YCCECalc/obj/Debug/net10.0/YCCECalc.AssemblyInfo.cs
+/Users/trishapadgelwar/Desktop/devops/YCCECalc/obj/Debug/net10.0/YCCECalc.csproj.CoreCompileInputs.cache
+/Users/trishapadgelwar/Desktop/devops/YCCECalc/obj/Debug/net10.0/YCCECalc.dll
+/Users/trishapadgelwar/Desktop/devops/YCCECalc/obj/Debug/net10.0/refint/YCCECalc.dll
+/Users/trishapadgelwar/Desktop/devops/YCCECalc/obj/Debug/net10.0/YCCECalc.pdb
+/Users/trishapadgelwar/Desktop/devops/YCCECalc/obj/Debug/net10.0/ref/YCCECalc.dll
