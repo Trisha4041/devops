@@ -2,12 +2,11 @@ pipeline {
     agent any
 
     environment {
-        // Optional: ensures dotnet uses a writable home
+        PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
         DOTNET_CLI_HOME = "${WORKSPACE}/.dotnet"
     }
 
     stages {
-
         stage('Checkout') {
             steps {
                 checkout scm
@@ -16,6 +15,7 @@ pipeline {
 
         stage('Restore') {
             steps {
+                sh 'dotnet --version'
                 sh 'dotnet restore'
             }
         }
